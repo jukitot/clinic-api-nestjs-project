@@ -1,0 +1,901 @@
+{
+	"info": {
+		"_postman_id": "70b5f835-bea0-4cb4-95e6-ca5c0f10192b",
+		"name": "clinic-api-nestjs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31109599"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "auth register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"irzhyckaya@gmail.com\",\r\n  \"password\": \"102030P@ssword!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth forgot password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"token\": \"2ac6e5bbef7c30677ae69f52766dc7d99a94fc90\",\r\n  \"newPassword\":\"12345P@ss\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/reset-password",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"irzhyckaya@gmail.com\",\r\n  \"password\": \"102030P@ssword!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "clinics",
+			"item": [
+				{
+					"name": "post clinic",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Lakeside Medical Group\",\r\n  \"doctorIds\": [10, 11, 12]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/clinics",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clinics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get clinics",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/clinics",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clinics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get clinics by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/clinics/11",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clinics",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete clinic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/clinics/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clinics",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update clinic",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/clinics/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clinics",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search Clinic by name without sort",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/clinics/search?name=кли",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clinics",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "кли"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search Clinic by name with sort",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/clinics/search?name=до&sortBy=name&order=DESC",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clinics",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "до"
+								},
+								{
+									"key": "sortBy",
+									"value": "name"
+								},
+								{
+									"key": "order",
+									"value": "DESC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search Clinic by service",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/clinics/search-by-service?name=gast",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clinics",
+								"search-by-service"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "gast"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search Clinic by Doctor",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/clinics/search-by-doctor?name=romanova",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clinics",
+								"search-by-doctor"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "romanova"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "services",
+			"item": [
+				{
+					"name": "post service",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImVtYWlsIjoiaXJ6aHlja2F5YUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDkyMDAzMDQsImV4cCI6MTc0OTI4NjcwNH0.kU_zBcOL8nawIXY6ImZ3CR_9oPnW4Agjs2SbLTf5MIY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Psychiatry\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/services",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get services",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/services",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get services by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/services/23",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"services",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete service",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/services/10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"services",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update service",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/services/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"services",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get services By name withour sort",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/services/search?name=gin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"services",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "gin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get services By name withour sort Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/services/search?name=g&sortBy=name&order=DESC",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"services",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "g"
+								},
+								{
+									"key": "sortBy",
+									"value": "name"
+								},
+								{
+									"key": "order",
+									"value": "DESC"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "users profile/me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImVtYWlsIjoiaXJ6aHlja2F5YUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDkyMDAzMDQsImV4cCI6MTc0OTI4NjcwNH0.kU_zBcOL8nawIXY6ImZ3CR_9oPnW4Agjs2SbLTf5MIY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"irzhyckaya3@gmail.com\",\r\n  \"password\": \"102030P@ssword!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/profile/me",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoiaXJ6aHlja2F5YTRAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDkxOTcyNDMsImV4cCI6MTc0OTI4MzY0M30.NpKk0R7rFG6BPve-AkQbDlOvkd_0XnVnfvTw7f-jX3w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"irzhyckaya3@gmail.com\",\r\n  \"password\": \"102030P@ssword!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoiaXJ6aHlja2F5YTNAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDkxOTYwMzIsImV4cCI6MTc0OTI4MjQzMn0.r8LCgc_W2h2_eX6A3HbyAcFWqu-qunYKhaZQa4m_ATA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"irzhyckaya@gmail.com\",\r\n  \"password\": \"102030P@ssword!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "doctors",
+			"item": [
+				{
+					"name": "get doctors",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/doctors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get doctors by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/doctors/12",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"doctors",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete doctor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/doctors/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"doctors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update doctor",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/doctors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiaXJ6aHlja2F5YUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDkxODQxODksImV4cCI6MTc0OTI3MDU4OX0.-YkiNaq6JyTkyb7w8ENoTg9JsLWWWtpmszvJ3sdz7lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Davis\",\r\n  \"lastName\": \"Federov\",\r\n  \"phone\":\"3800887125\",\r\n  \"email\" :\"service2@medical.com\",\r\n  \"clinicIds\":[3],\r\n  \"serviceIds\":[2]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/doctors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search Doctor with sort",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/doctors/search?query=Dav&sortBy=firstNam&order=ASC",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"doctors",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Dav"
+								},
+								{
+									"key": "sortBy",
+									"value": "firstNam"
+								},
+								{
+									"key": "order",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search Doctor without sort",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Клиника Добро\",\r\n  \"doctorIds\": [1, 2]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/doctors/search?query=Dav",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"doctors",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Dav"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
