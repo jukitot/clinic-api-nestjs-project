@@ -6,7 +6,7 @@ import {
 import { CreateClinicDto } from './dto/create-clinic.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Clinic } from './entities/clinic.entity';
-import { ILike, In, Like, Repository } from 'typeorm';
+import { ILike, In, Repository } from 'typeorm';
 import { Doctor } from '../doctors/entities/doctor.entity';
 import { UpdateClinicDto } from './dto/update-clinic.dto';
 
