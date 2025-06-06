@@ -30,7 +30,7 @@ The API supports JWT-based authentication and role-based authorization.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-repo/clinic-api.git
+git clone https://github.com/jukitot/clinic-api-nestjs-project.git
 cd clinic-api
 ```
 
